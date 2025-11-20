@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ksa.pft.dto.RegistrationDto;
 import com.ksa.pft.model.User;
@@ -18,7 +19,8 @@ public class AuthController {
 	private UserService userService;
 
 	@GetMapping("/login")
-	public String loginPage() {
+	public String loginPage(@RequestParam(required = false) String error,Model model) {
+		model.addAttribute("error", error);
 		return "login";
 	}
 

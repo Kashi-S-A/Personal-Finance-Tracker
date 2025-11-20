@@ -55,6 +55,9 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .loginProcessingUrl("/do-login") // <-- IMPORTANT
                         .defaultSuccessUrl("/dashboard", true)
+                        .failureHandler((request, response, exception) -> {
+                            response.sendRedirect("/login?error=Invalid%20credentials");
+                        })
                         .permitAll()
                 )
                 .logout(logout -> logout
