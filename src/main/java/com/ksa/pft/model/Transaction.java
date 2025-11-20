@@ -1,0 +1,41 @@
+package com.ksa.pft.model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+public class Transaction {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+
+
+private Double amount;
+private String description;
+private LocalDate date;
+
+
+@Enumerated(EnumType.STRING)
+private TransactionType type;
+
+
+@ManyToOne
+private Category category;
+
+
+@ManyToOne
+private User user;
+}
