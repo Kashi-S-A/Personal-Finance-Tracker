@@ -18,24 +18,20 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Transaction {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
+	private Double amount;
+	private String description;
+	private LocalDate date;
 
-private Double amount;
-private String description;
-private LocalDate date;
+	@Enumerated(EnumType.STRING)
+	private TransactionType type;
 
+	@ManyToOne
+	private Category category;
 
-@Enumerated(EnumType.STRING)
-private TransactionType type;
-
-
-@ManyToOne
-private Category category;
-
-
-@ManyToOne
-private User user;
+	@ManyToOne
+	private User user;
 }

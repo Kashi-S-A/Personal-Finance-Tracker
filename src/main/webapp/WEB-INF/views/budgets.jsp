@@ -116,19 +116,20 @@
             <% } %>
         </select>
 		
-        <!-- Category -->
-        <label>Category</label><br />
-        <select name="category.id">
+			 <!-- Category -->
+       		    <label>Category</label><br />
+        		<select name="category.id">
             <%
                 if(categories != null){
                     for(Category c : categories){ 
+                    	
             %>
                 <option value="<%= c.getId() %>"><%= c.getName() %></option>
             <%
                     }
                 }
             %>
-        </select>
+             </select> 
 
         <!-- Amount -->
         <label>Amount</label><br />
@@ -143,7 +144,7 @@
         <tr>
             <th>Month</th>
             <th>Year</th>
-            <th>Category</th>
+          	<th>Category</th>
             <th>Amount</th>
         </tr>
 

@@ -16,18 +16,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Category {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
+	private String name;
 
-private String name;
+	@Enumerated(EnumType.STRING)
+	private TransactionType type;
 
-
-@Enumerated(EnumType.STRING)
-private TransactionType type;
-
-
-@ManyToOne
-private User user;
+	@ManyToOne
+	private User user;
 }

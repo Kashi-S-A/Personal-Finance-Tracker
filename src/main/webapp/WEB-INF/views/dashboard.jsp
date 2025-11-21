@@ -20,7 +20,7 @@
 		<canvas id="monthlyChart"></canvas>
 	</div>
 </div>
-<script src="/static/js/chart-helpers.js"></script>
+<script src="/js/chart-helpers.js"></script>
 <script>
 // category chart
 fetch('/api/chart/category-wise')
